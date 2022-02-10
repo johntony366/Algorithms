@@ -29,9 +29,29 @@ void countingSort(int* A, int n, unsigned long long exp)
     }
 }
 
-void radixSort(int* A, int n, int d)
+int getDigits(int* A, int n)
+{
+    int max = A[0];
+    for (int i = 1; i < n; ++i)
+    {
+        if (A[i] > max)
+        {
+            max = A[i];
+        }
+    }
+    int d = 1;
+    while (max /= 10)
+    {
+        ++d;
+    }
+    return d;
+
+}
+
+void radixSort(int* A, int n)
 {
     unsigned long long exp = 1;
+    int d = getDigits(A, n);
 
     for (int i = 1; i <= d; ++i)
     {
@@ -44,9 +64,8 @@ int main()
 {
     int A[]{ 329, 457, 657, 839, 436, 720, 355 };
     int n = std::size(A);
-    int d = 3;
 
-    radixSort(A, n, d);
+    radixSort(A, n);
 
     for (int i = 0; i < n; ++i)
     {
