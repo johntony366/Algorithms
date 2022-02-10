@@ -1,34 +1,34 @@
 #include <iostream>
-#include <array>
 #include <algorithm>
+#include <iterator>
 
-using array_type = std::array<int, 9>;
-using index_type = array_type::size_type;
-void insertionSort(array_type& array)
+void insertionSort(int* A, int n)
 {
-    auto lastSorted_index{ 0 };
-    while (lastSorted_index < std::size(array))
+    for (int i = 1; i < n; ++i)
     {
-        auto temp{ array[lastSorted_index + 1] };
-        auto temp_index{ lastSorted_index + 1 };
-        for (int comparisonIndex{ lastSorted_index }; comparisonIndex >= 0; --comparisonIndex)
+        int key = A[i];
+        int j = i - 1;
+        while (j >= 0 && A[j] > key)
         {
-            if (array[lastSorted_index+1] < array[comparisonIndex])
-            {
-                array[comparisonIndex+1] = array[comparisonIndex];
-                --temp_index;
-            }
+            A[j + 1] = A[j];
+            --j;
         }
-        array[temp_index] = temp;
-        ++lastSorted_index;
+        A[j + 1] = key;
     }
 }
+
 int main()
 {
-    array_type array{ 5, 1, 2, 4, 3, 9, 8, 7, 6 };
-    insertionSort(array);
-    for (int element : array)
+    int A[]{ 5, 1, 2, 4, 3, 9, 8, 7, 6 };
+    int n = std::size(A);
+
+    insertionSort(A, n);
+
+    for (int i = 0; i < n; ++i)
     {
-        std::cout << element << ' ';
+        std::cout << A[i] << ' ';
     }
+
+    std::cout << '\n';
+    return 0;
 }
