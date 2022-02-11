@@ -31,7 +31,7 @@ int partition(std::vector<int>& A, int p, int r)
     return i+1;  //returns index of pivot element
 }
 
-int partition(std::vector<int>& A, int p, int r)
+int randomisedPartition(std::vector<int>& A, int p, int r)
 {
     int i = getRandomNumber(p, r);
     std::swap(A[i], A[r]);
@@ -42,7 +42,7 @@ void quicksort(std::vector<int>& A, int p, int r)
 {
     if (p < r)
     {
-        int q = partition(A, p, r);
+        int q = randomisedPartition(A, p, r);
         quicksort(A, p, q - 1);
         quicksort(A, q + 1, r);
     }
