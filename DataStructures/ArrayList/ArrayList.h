@@ -165,7 +165,7 @@ public:
         *this = ArrayList();
     }
 
-    friend std::ostream& operator<<(std::ostream& out, const ArrayList& array)
+    std::ostream& operator<<(std::ostream& out, const ArrayList& array)
     {
         for (int i = 0; i < array.m_size; ++i)
         {

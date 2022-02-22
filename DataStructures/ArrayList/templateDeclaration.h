@@ -1,5 +1,6 @@
 #pragma once
 
+//This is just to show how to create template friend functions 
 #include <iostream>
 #include <cassert>
 
@@ -154,7 +155,7 @@ public:
         return m_capacity;
     }
 
-    friend std::ostream& operator<<<T>(std::ostream& out, const ArrayList<T>& array);
+    friend std::ostream& operator<<<T>(std::ostream& out, const ArrayList<T>& array);  // <-----
 };
 
 template <typename T>
@@ -162,7 +163,7 @@ std::ostream& operator<<(std::ostream& out, const ArrayList<T>& array)
 {
     for (int i = 0; i < array.m_size; ++i)
     {
-        out << array[i] << ' ';
+        out << array.m_data[i] << ' ';
     }
     return out << '\n';
 }
