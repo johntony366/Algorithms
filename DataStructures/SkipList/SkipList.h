@@ -27,6 +27,7 @@ class SkipList
 {
 private:
     int MAXLVL; // Maximum level for this skip list
+    //Ideally MAXLVL will be >= log1/P(n)
     float P; // P is the probability of coin flip giving heads (add layer) ALSO fraction of the nodes with level i pointers also having level i+1 pointers
     
     int m_size; //Number of elements in the skip list

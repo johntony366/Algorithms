@@ -4,7 +4,7 @@ int main()
 {
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-    SkipList<int> list(3, 0.5);  //3 is max level, 0.5 is P. Ideally max level would be log2(n)
+    SkipList<int> list(3, 0.5);  //3 is max level, 0.5 is P. Ideally max level would be atleast log1/P(n)
   
     list.insert(3);
     list.insert(3);
